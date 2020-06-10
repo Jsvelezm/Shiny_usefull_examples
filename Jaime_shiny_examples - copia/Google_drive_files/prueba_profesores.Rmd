@@ -1,0 +1,71 @@
+---
+title: "test_teachers"
+author: "Jaime Velez"
+date: "15/4/2020"
+output: html_document
+runtime: shiny
+resource_files:
+- google5b30d1ecec8a2aa2.html
+- shiny_app_token.rds
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r}
+
+#### Conectandose a spreadsheet de google
+
+#install.packages("gmailr")
+
+library(googlesheets4)
+library(gmailr)
+library(googledrive)
+library(googleAuthR)
+library(readxl)
+
+
+options(googleAuthR.scopes.selected = c("https://www.googleapis.com/auth/drive"))
+options(googleAuthR.client_id = "807629257711-v1iq85409dlfda2p4md60jvbl42i21di.apps.googleusercontent.com",
+        googleAuthR.client_secret = "7VUVmHPcvRYFSvL1ot7M1Yih")
+
+#shiny_token <- gar_auth() 
+#saveRDS(shiny_token, "shiny_app_token.rds") 
+f$credentials
+
+f=gar_auth(email = "jsvelezm@gmail.com") #token = "shiny_app_token.rds")
+gar_auth_js()
+drive_download( "https://drive.google.com/file/d/197e49JClaqLpKTs1zwaKag1QcTC22BBg/view?usp=sharing",overwrite = TRUE)
+
+drive_download("https://drive.google.com/file/d/1p-IhG1YD2D0pFYhpU_KthBu5DxP9oAli/view?usp=sharing", overwrite = TRUE)
+
+
+base <- read_excel("DocenteFinal.xlsx")
+
+CP <- read_excel("DocenteFinal.xlsx", sheet =  "CP")
+
+
+#base = read_sheet("https://docs.google.com/spreadsheets/d/1Ivxt5nkxT0xoCAfRVbMYwatuCVsZTISlv_HaQXTBszw/edit?usp=sharing",sheet = "Data")
+#cp = read_sheet("https://docs.google.com/spreadsheets/d/1Ivxt5nkxT0xoCAfRVbMYwatuCVsZTISlv_HaQXTBszw/edit?usp=sharing",sheet = "CP")
+
+#use_secret_file("r_example.json")
+
+#drive_find("Estudiantes")
+
+#drive_get(as_id("1yReGypnlwvrDOCrIGPc78vbVDhLVOZ-z9sc3yxtKU6U"))
+
+
+
+```
+
+
+
+```{r}
+head(base)
+```
+
+
